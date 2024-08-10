@@ -1,153 +1,177 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=3 uid="uid://7jnk4vksj60j"]
 
-[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Player/relax.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Player/attack2.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Player/idle.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Player/fall.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Player/run1.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Player/run2.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Player/jump.png" type="Texture" id=8]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://b3lvd5wuxeoxq" path="res://Sprites/Player/relax.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://1iq5vjoh3pws" path="res://Sprites/Player/attack2.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dn17b6qu02m88" path="res://Sprites/Player/idle.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bmlo168ex7wu5" path="res://Sprites/Player/fall.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://cbkjagyou3jb2" path="res://Sprites/Player/run1.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://cubejg6csugyb" path="res://Sprites/Player/run2.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://csuacfrawgmmy" path="res://Sprites/Player/jump.png" id="8"]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 8 ) ],
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}],
 "loop": true,
-"name": "Jump",
+"name": &"Attack",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5")
+}],
 "loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "Relax",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "Fall",
+"name": &"Fall",
 "speed": 4.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4")
+}],
 "loop": true,
-"name": "Attack",
+"name": &"Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8")
+}],
 "loop": true,
-"name": "Run",
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2")
+}],
+"loop": true,
+"name": &"Relax",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7")
+}],
+"loop": true,
+"name": &"Run",
 "speed": 10.0
-} ]
+}]
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 17.5, 28 )
+[sub_resource type="RectangleShape2D" id="6"]
+size = Vector2(17.5, 56)
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 18.25, 29 )
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(18.25, 56)
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 40.75, 18.9266 )
+[sub_resource type="RectangleShape2D" id="3"]
+size = Vector2(64.125, 27.2929)
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id="4"]
 length = 0.5
 step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ "Attack", "Idle" ]
+"values": ["Attack", "Idle"]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Attack/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( -0.01, 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array(-0.01, 0, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ false, false, true ]
+"values": [false, false, true]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id="5"]
 length = 0.01
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ "Idle" ]
+"values": ["Idle"]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Attack/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ true ]
+"values": [true]
 }
 
-[node name="Player" type="KinematicBody2D"]
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x4ooo"]
+_data = {
+"Attack": SubResource("4"),
+"Idle": SubResource("5")
 }
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1")
 health = 80
 
-[node name="Sprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 1 )
-animation = "Idle"
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("1")
+animation = &"Idle"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-shape = SubResource( 6 )
+shape = SubResource("6")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 
 [node name="Hurtbox" type="CollisionShape2D" parent="Hurtbox"]
-shape = SubResource( 2 )
+shape = SubResource("2")
 
 [node name="Attack" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
-position = Vector2( 20.25, -0.353552 )
-shape = SubResource( 3 )
+position = Vector2(31.9375, -0.353552)
+shape = SubResource("3")
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-current = true
-offset_v = -0.5
+drag_vertical_offset = -0.5
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.1, 0.1 )
-motion_mirroring = Vector2( 640, 640 )
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(640, 640)
 
-[node name="Sky" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Sky" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Attack = SubResource( 4 )
-anims/Idle = SubResource( 5 )
+libraries = {
+"": SubResource("AnimationLibrary_x4ooo")
+}
 
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_Hurtbox_body_entered"]
 [connection signal="body_entered" from="Attack" to="." method="_on_Attack_body_entered"]

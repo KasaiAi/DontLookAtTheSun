@@ -22,12 +22,15 @@ func _physics_process(_delta):
 		get_mad()
 	if health <= 0:
 		queue_free()
-	motion = move_and_slide(motion, Vector2.UP)
+	set_velocity(motion)
+	set_up_direction(Vector2.UP)
+	move_and_slide()
+	motion = velocity
 
 func get_mad():
 	base_speed = fury_speed * scale.x
-	$AnimatedSprite.speed_scale = 3
-	get_node("WatchYourStep/CollisionShape2D").disabled = true
+	$AnimatedSprite2D.speed_scale = 3
+	$WatchYourStep/CollisionShape2Ds.disabled = true
 
 func _on_WatchYourStep_body_exited(_body):
 	scale.x = -scale.x

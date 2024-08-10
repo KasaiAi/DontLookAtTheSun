@@ -1,43 +1,37 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://dnunab4vmf5d6"]
 
-[ext_resource path="res://Sprites/HP/over.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/HP/under.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/HP/progress.png" type="Texture" id=3]
-[ext_resource path="res://Scripts/HealthBar.gd" type="Script" id=4]
+[ext_resource type="Texture2D" uid="uid://dluily72i0fhy" path="res://Sprites/HP/over.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://cbt0mh82pmd6v" path="res://Sprites/HP/under.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://xg8sah48p17n" path="res://Sprites/HP/progress.png" id="3"]
+[ext_resource type="Script" path="res://Scripts/HealthBar.gd" id="4"]
 
 [node name="HealthBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -850.0
-margin_bottom = -661.0
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
+offset_right = -850.0
+offset_bottom = -661.0
+script = ExtResource("4")
 
-[node name="HealthMeter" type="TextureProgress" parent="."]
-margin_right = 250.0
-margin_bottom = 40.0
+[node name="HealthMeter" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 40.0
+step = 20.0
 value = 100.0
-texture_under = ExtResource( 2 )
-texture_over = ExtResource( 1 )
-texture_progress = ExtResource( 3 )
-tint_progress = Color( 0.219608, 0.8, 0.294118, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture_under = ExtResource("2")
+texture_over = ExtResource("1")
+texture_progress = ExtResource("3")
+tint_progress = Color(0.219608, 0.8, 0.294118, 1)
 
 [node name="Label" type="Label" parent="HealthMeter"]
+layout_mode = 0
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 10.0
-margin_top = -20.0
-margin_right = 250.0
-margin_bottom = 20.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+offset_left = 10.0
+offset_top = -20.0
+offset_right = 250.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "100"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
